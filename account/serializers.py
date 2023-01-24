@@ -15,17 +15,17 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = User
         fields = ('email', 'password', 'password2', 'first_name', 'last_name', 'username', 'avatar')
 
-        def validate(self, attrs):
-            password2 = attrs.pop('password2')
-            if attrs['password'] != password2:
-                raise serializers.ValidationError('Password did not match')
-            if not attrs['password'].isalnum():
-                raise serializers.ValidationError('Password field must contain alpha and numeric symbol')
-            return attrs
+    def validate(self, attrs):
+        password2 = attrs.pop('password2')
+        if attrs['password'] != password2:
+            raise serializers.ValidationError('Password did not match')
+        if not attrs['password'].isalnum():
+            raise serializers.ValidationError('Password field must contain alpha and numeric symbol')
+        return attrs
 
-        def create(self, validated_data):
-            user = User.objects.create_user(**validated_data)
-            return user
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
 
 
 class LogoutSerializer(serializers.Serializer):
