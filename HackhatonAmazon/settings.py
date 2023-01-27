@@ -49,6 +49,10 @@ INSTALLED_APPS = [
     'ckeditor',
     # my_apps
     'account',
+    'category',
+    'product',
+    'order',
+    'rating',
 ]
 
 MIDDLEWARE = [

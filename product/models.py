@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.db import models
 from category.models import Category
 from ckeditor.fields import RichTextField
 
